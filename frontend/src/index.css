@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Trade+Winds&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face{
+  font-family: 'Tusker Grotesk';
+  src: url("./fonts/TuskerGrotesk-4800Super.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+
+
+/* h1{
+  font-family: 'Trade Winds';
+  color: rgb(199, 5, 5);
+} */
+
+.paragraph{
+  font-family: "Trade Winds";
+  font-size: large;
+}
+
+
+.smoother-content {
+  will-change: transform;
+}
+
+.smoother-wrapper {
+  width: 100%;
+  height: 100%;
+}

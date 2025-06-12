@@ -9,7 +9,7 @@ import img3 from "../Image/2.jpg";
 import img4 from "../Image/3.jpg";
 import img5 from "../Image/4.jpg";
 import img6 from "../Image/5.jpg";
-import img7 from "../Image/6.jpg";
+import img7 from "../Image/6.JPG";
 import img8 from "../Image/7.jpg";
 
 

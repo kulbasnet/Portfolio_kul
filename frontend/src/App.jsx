@@ -42,7 +42,7 @@ function App() {
          <Hero/>
          <About/>
           <Project />
-          <Cv />
+          <Cv  />
           <Footer />
       </div>
     </div>

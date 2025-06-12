@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tweet from "../Pages/Twitter.png";
 import Real from "../Pages/Home.jpg";
 import { motion } from "framer-motion";
 import { ChevronLeft, FileDown, MoveUpRight  } from "lucide-react";
+import gsap from "gsap";
+import SplitText from "gsap/SplitText";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
 
 
 const anim = {
@@ -37,6 +41,32 @@ function Page({ project }) {
     setSelected(null);
   };
 
+  // useEffect(()=>{
+  //   gsap.registerPlugin(SplitText, ScrollTrigger);
+  //   const split = new SplitText("#title1", {
+  //     type: "lines",
+  //     linesClass: "lineChildren"
+  //   })
+
+  //   const tl = gsap.timeline({
+  //     scrollTrigger:{
+  //       trigger:"#title1",
+  //       toggleActions:"play none none none"
+        
+  //     }
+  //   });
+  //   tl.from(split.lines,{
+  //     duration: 1.9,
+  //     // stagger:0.3,
+  //     ease:"power4.in",
+  //     opacity:0,
+  //     yPercent: 10
+  //   })
+
+
+
+  // })
+
   return (
     <>
       {selected ? (
@@ -50,14 +80,14 @@ function Page({ project }) {
 
           <img
             src={selected.img}
-            className="w-[60%] h-[500px] mb-10 rounded shadow-lg"
+            className="md:w-[60%] w-[350px] md:h-[500px] mb-10 rounded shadow-lg"
             alt="Selected project"
           />
           <div className="flex  gap-3">
-            <p className="text-4xl text-white font-bold font-PlayFair mb-2">
+            <p className="md:text-4xl text-2xl text-white font-bold font-PlayFair mb-2">
               {selected.title1}
             </p>
-            <p className="text-4xl text-white font-bold font-PlayFair">
+            <p className="md:text-4xl text-2xl text-white font-bold font-PlayFair">
               {selected.title2}
             </p>
           </div>
@@ -93,7 +123,7 @@ function Page({ project }) {
             <h2 className="mt-16 text-white text-5xl font-semibold">
               Tech Stack
             </h2>
-            <div className="flex w-[65vw] mt-10 ">
+            <div className="flex md:w-[65vw]  mt-10 ">
               {selected.Mern && (
                  <img className="w-[250px] h-[150px] " src={Mern} />
               )}
@@ -112,14 +142,14 @@ function Page({ project }) {
               )}
             </div>
           </div>
-<div className="flex">
+<div className="flex gap-8">
 
-  <a href={link} className="flex ml-16 bg-gray-600 hover:bg-green-600 text-white h-12 pt-3 rounded  mt-[190px] justify-center transition w-[160px]">
+  <a href={link} className="flex md:ml-16  bg-gray-600 hover:bg-green-600 text-white md:h-12 pt-3 rounded  mt-[190px] justify-center transition w-[130px] md:w-[160px]">
     Source Code  <MoveUpRight className="ml-2" /></a>
 
             <a
             href={pdf}
-            className=" flex  bg-red-700 hover:bg-green-600 text-white h-12 pt-3 rounded ml-[700px] mt-[190px] justify-center transition w-[180px]"
+            className=" flex  bg-red-700 hover:bg-green-600 text-white md:h-12 h-12 pt-3 rounded md:ml-[700px] mt-[190px] justify-center transition w-[170px] md:w-[180px]"
             download={pdf}
           >
             Download Report <FileDown className="ml-3"/>
@@ -139,11 +169,11 @@ function Page({ project }) {
           onClick={() => projectClick(project)}
           className=" border-t-2  border-black pt-5 pb-6 cursor-pointer overflow-hidden flex justify-center "
         >
-          <p className="mr-4 text-[4vw] font-PlayFair ">{title1}</p>
+          <p id="title1" className=" mr-2 md:mr-4 md:text-[4vw] font-PlayFair ">{title1}</p>
           <motion.div variants={anim} animate={isActive ? "open" : "closed"}>
-            <img src={img} className="w-[10vw]] h-[120px]" />
+            <img src={img} className="md:w-[10vw]] md:h-[120px]" />
           </motion.div>
-          <p className=" font-PlayFair  ml-3  text-[4vw]">{title2}</p>
+          <p id="title1" className=" font-PlayFair  md:ml-3  md:text-[4vw]">{title2}</p>
         </div>
       )}
     </>

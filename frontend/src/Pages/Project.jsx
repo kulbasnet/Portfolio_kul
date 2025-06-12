@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tweet from "./Twitter.png";
 import Real from "./Home.png";
 import Page from "../Component/Page";
@@ -11,6 +11,9 @@ import tail from "./tailwind.png";
 import Realities from "./Basnet_Report.pdf";
 import Bengali from "./Bengali.pdf";
 import News from "./TrueAndFalseNews.pdf";
+import gsap from "gsap";
+import SplitText from "gsap/SplitText";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 function Project() {
   const projects = [
@@ -64,10 +67,40 @@ function Project() {
     },
   ];
 
+  useEffect(()=>{
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    let tl = gsap.timeline({
+      delay:1,
+       scrollTrigger: {
+      trigger: "#proj-head",
+      start:"top bottom"
+      
+      // toggleActions: "play none none none", 
+      // markers: true, 
+    },
+    });
+    const split = new SplitText("#proj-head",{
+      type: "lines",
+      linesClass:"linesChildren"
+    })
+
+    tl.from(split.lines,
+      {
+      y:100,
+      opacity:0,
+      duration:2,
+      ease:"power4",
+      stagger:4
+      
+    })
+
+  },[])
+
   return (
-    <main id="project" className="flex justify-center mb-60">
+    <main id="project" className="flex justify-center  md:py-24  md:h-[700px] mb-40 md:mb-60">
       <div className="w-[70%]">
-        <h1 className="text-3xl mb-8 font-PlayFair font-semibold ">Projects</h1>
+        <h1 id="proj-head" className="text-3xl md:text-5xl relative  mb-8 font-PlayFair font-semibold ">Projects</h1>
         {projects.map((project, index) => (
           <Page key={index} project={project} />
         ))}

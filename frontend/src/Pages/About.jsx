@@ -3,9 +3,23 @@ import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 // import Word from "../Component/Word";
+import img1 from "../Image/0.JPG";
+import img2 from "../Image/1.JPG";
+import img3 from "../Image/2.jpg";
+import img4 from "../Image/3.jpg";
+import img5 from "../Image/4.jpg";
+import img6 from "../Image/5.jpg";
+import img7 from "../Image/6.jpg";
+import img8 from "../Image/7.jpg";
+
+
 
 const paragraph =
   "Recent Graduate IT Student, I specialize in full-stack development with expertise in MERN Stack and AI, currently transitioning from academia to the professional tech arena while actively building hands-on experience. My technical proficiency spans Python, JavaScript, and C#, complemented by a robust academic foundation that has instilled a disciplined focus on code quality, best practices, and secure system design.";
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+
+
 
 function About() {
 
@@ -102,7 +116,7 @@ function About() {
         <img
           key={index}
           ref={(el) => (imageRefs.current[index] = el)}
-          src={`/public/Image/${index}.jpg`}
+          src={images[index]}
           className="w-[10vw] hidden"
           style={{ 
             position: 'absolute',

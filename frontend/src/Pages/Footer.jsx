@@ -113,7 +113,7 @@ function Footer() {
         <h1 id="connect" className="font-custom  text-6xl w-11 mb-6 text-yellow-700 sm:text-4xl md:text-9xl">
           LET'S CONNECT?
         </h1>
-          <button id="contact" className=" md:mt-52 h-14 w-28 mt-16 text-base ml-56 sm:text-x justify-center align-middle hover:bg-yellow-600 hover:text-black transition hover:border-yellow-700 bg-black text-white md:ml-[450px] md:w-48  md:h-16  border rounded-xl md:text-2xl font-PlayFair">
+          <button id="contact" className=" md:mt-52 h-14 w-28 mt-16 text-base ml-56 sm:text-x justify-center align-middle hover:bg-yellow-600 hover:text-black transition hover:border-yellow-700 bg-black text-white md:ml-[610px] md:w-48  md:h-16  border rounded-xl md:text-2xl font-PlayFair">
           <p >CONTACT ME </p>
         </button>
       </div>

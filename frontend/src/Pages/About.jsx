@@ -3,14 +3,14 @@ import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 // import Word from "../Component/Word";
-import img1 from "../Image/0.JPG";
-import img2 from "../Image/1.JPG";
-import img3 from "../Image/2.jpg";
-import img4 from "../Image/3.jpg";
-import img5 from "../Image/4.jpg";
-import img6 from "../Image/5.jpg";
-import img7 from "../Image/6.JPG";
-import img8 from "../Image/7.jpg";
+import img1 from "../image/0.JPG";
+import img2 from "../image/1.JPG";
+import img3 from "../image/2.jpg";
+import img4 from "../image/3.jpg";
+import img5 from "../image/4.jpg";
+import img6 from "../image/5.jpg";
+import img7 from "../image/6.JPG";
+import img8 from "../image/7.jpg";
 
 
 

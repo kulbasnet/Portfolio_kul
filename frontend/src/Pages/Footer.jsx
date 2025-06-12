@@ -29,36 +29,15 @@ function Footer() {
       ease:"power4"
 
     })
-  })
+  },[])
 
     useEffect(()=>{
-    const l = gsap.timeline({delay:1.5,
+    const l = gsap.timeline({delay:2.5,
       scrollTrigger:{
         start:"top top",
-        trigger:"#contact",
+        trigger:"#mail",
       }
     });
-    // const split = new SplitText("#contact", {
-    //   type: "lines",
-    //   linesClass:"lineChildren"
-    // })
-
-    l.from("#contact",{
-      opacity:0,
-      yPercent:50,
-      duration:1,
-      stagger:0.6,
-      ease:"power4"
-
-    })
-
-    l.to("#contact",{
-      yPercent:-60,
-      opacity:1,
-      ease:'power4',
-      duration:1,
-      stagger:1
-    })
 
     const split = new SplitText("#mail", {
       type: "chars",
@@ -67,7 +46,7 @@ function Footer() {
 
 
     l.from(split.chars,{
-      duration:0.1,
+      duration:2.5,
       opacity:0,
       ease:"power4",
       stagger:0.1,
@@ -75,10 +54,10 @@ function Footer() {
     })
 
 
-  })
+  },[])
 
   useEffect(()=>{
-    let k = gsap.timeline({delay:2,
+    let k = gsap.timeline({delay:1.4,
       scrollTrigger:{
         start:"top bottom",
         trigger:"#footing"
@@ -88,34 +67,36 @@ function Footer() {
       yPercent:200,
       ease:"power4",
       duration:1,
-      opacity:1 
+      opacity:0 ,
+      stagger:0.3
 
     })
 
     k.to("#footing",{
       yPercent:10,
       ease:"power4",
-      duration:1,
-      opacity:1
+      duration:2,
+      opacity:1,
+      stagger:1
 
 
     })
 
-  })
+  },[])
 
 
   
 
   
   return (
-    <footer id="foot" className="md:mt-40 mt-28  px-6 sm:px-12 md:px-20">
+    <footer id="foot" className="md:mt-40 mt-28 border border-black   px-6 sm:px-12 md:px-20">
       <div className="flex">
-        <h1 id="connect" className="font-custom  text-6xl w-11 mb-6 text-yellow-700 sm:text-4xl md:text-9xl">
+        <h1 id="connect" className="font-custom md:mt-24  text-6xl w-11 mb-6 text-yellow-700 sm:text-4xl md:text-9xl">
           LET'S CONNECT?
         </h1>
-          <button id="contact" className=" md:mt-52 h-14 w-28 mt-16 text-base ml-56 sm:text-x justify-center align-middle hover:bg-yellow-600 hover:text-black transition hover:border-yellow-700 bg-black text-white md:ml-[610px] md:w-48  md:h-16  border rounded-xl md:text-2xl font-PlayFair">
+          {/* <button id="contact" className=" md:mt-52 h-14 w-28 mt-16 text-base ml-56 sm:text-x justify-center align-middle hover:bg-yellow-600 hover:text-black transition hover:border-yellow-700 bg-black text-white md:ml-[610px] md:w-48  md:h-16  border rounded-xl md:text-2xl font-PlayFair">
           <p >CONTACT ME </p>
-        </button>
+        </button> */}
       </div>
        <p id="mail" className="flex px-6 font-sans">
           <Mail id="mail" className="md:mr-2 mb-10 " />kulbhushan2k3@gmail.com

@@ -65,7 +65,7 @@ function Hero() {
 
   return (
     <div className="relative h-[700px] w-full overflow-hidden" id="hero">
-      <img src={himal} className="h-full lg:h-full  w-full object-cover" alt="himalayas" />
+      <img src={himal} className="h-full  md:full lg:w-full  w-full object-cover" alt="himalayas" />
 
        <div className="absolute top-8 left-7 mt-16 z-30 flex items-center gap-2">
     <Copyright className="w-5 h-6  md:ml-10" color="#d69e2e" />

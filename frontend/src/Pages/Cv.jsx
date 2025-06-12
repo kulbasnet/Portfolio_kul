@@ -75,7 +75,7 @@ function Cv() {
 
   return (<div>
   <div>
-    <h1 id='heading' className='font-sans md:ml-[680px] md:mb-10 md:text-8xl  relative font-bold'>CV</h1>
+    <h1 id='heading' className='font-sans flex justify-center text-3xl  md:mb-10 md:text-8xl  relative font-bold'>CV</h1>
   </div>
 
       <div className="flex justify-center items-center mb-1 p-4 md:mb-11">

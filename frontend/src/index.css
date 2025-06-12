@@ -7,7 +7,7 @@
 
 @font-face{
   font-family: 'Tusker Grotesk';
-  src: url("./fonts/TuskerGrotesk-4800Super.ttf") format('truetype');
+  src: url("../src/fonts/TuskerGrotesk-4800Super.ttf") format('truetype');
   font-weight: 400;
   font-style: normal;
 

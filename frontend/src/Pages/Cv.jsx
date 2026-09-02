@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import HtmlFlipBook from 'react-pageflip';
 import { pdfjs, Document, Page as PdfPage } from 'react-pdf';
-import pdf from '../Pages/NewResume.pdf';
+import pdf from '../Pages/PROPERCV.pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import gsap from 'gsap';
@@ -31,7 +31,7 @@ const FinalPage = React.forwardRef((_, ref) => (
     </h2>
     <a
       href={pdf}
-      download="Resume.pdf"
+      download="PROPERCV.pdf"
       className="bg-black  text-white px-5 py-2 rounded hover:bg-yellow-500 transition md:ml-[149px]"
     >
       Download CV

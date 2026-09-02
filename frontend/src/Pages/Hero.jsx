@@ -64,15 +64,20 @@ function Hero() {
 
 
   return (
-    <div className="relative h-[700px] w-full overflow-hidden" id="hero">
-      <img src={himal} className="h-full  md:full lg:w-full  w-full object-cover" alt="himalayas" />
+    <div className="relative w-full h-dvh overflow-hidden" id="hero">
+     
+      <img
+        src={himal}
+        className="block h-auto w-full object-contain"
+        alt="himalayas"
+      />
 
        <div className="absolute top-8 left-7 mt-16 z-30 flex items-center gap-2">
     <Copyright className="w-5 h-6  md:ml-10" color="#d69e2e" />
     <h1 className=" font-serif text-yellow-600 text-sm drop-shadow-md" id="copy">Code by Kul</h1>
   </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-30 flex flex-col items-center gap-4">
+      <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-4 text-center">
         <img
           src={sun}
           alt="sun"

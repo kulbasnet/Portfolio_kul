@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Tweet from "../Pages/Twitter.png";
-import Real from "../Pages/Home.jpg";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, FileDown, MoveUpRight  } from "lucide-react";
-import gsap from "gsap";
-import SplitText from "gsap/SplitText";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-
 
 const anim = {
   initial: { width: 0 },
@@ -15,148 +8,128 @@ const anim = {
   closed: { width: 0 },
 };
 
+const MotionDiv = motion.div;
+
 function Page({ project }) {
   const [isActive, setActive] = useState(false);
   const [selected, setSelected] = useState(null);
+  const detailRef = useRef(null);
   const {
     title1,
     title2,
     img,
-    problem,
-    description,
-    image,
     pdf,
-    Python,
-    Git,
-    Tail,
-    Mern,
-    link
+    link,
+    liveLink,
+    recommendationHealthLink
   } = project;
 
   const projectClick = (project) => {
     setSelected(project);
   };
 
+  useEffect(() => {
+    if (selected) {
+      detailRef.current.scrollTop = 0;
+    }
+  }, [selected]);
+
   const backButton = () => {
     setSelected(null);
   };
 
-  // useEffect(()=>{
-  //   gsap.registerPlugin(SplitText, ScrollTrigger);
-  //   const split = new SplitText("#title1", {
-  //     type: "lines",
-  //     linesClass: "lineChildren"
-  //   })
-
-  //   const tl = gsap.timeline({
-  //     scrollTrigger:{
-  //       trigger:"#title1",
-  //       toggleActions:"play none none none"
-        
-  //     }
-  //   });
-  //   tl.from(split.lines,{
-  //     duration: 1.9,
-  //     // stagger:0.3,
-  //     ease:"power4.in",
-  //     opacity:0,
-  //     yPercent: 10
-  //   })
-
-
-
-  // })
-
   return (
     <>
       {selected ? (
-        <div className="fixed top-0 left-0 w-full h-full bg-black z-50 flex flex-col items-center pt-[120px] overflow-auto">
+        <div
+          ref={detailRef}
+          className="fixed inset-0 z-50 overflow-y-auto bg-black px-4 pb-10 pt-20 text-white sm:px-6 sm:pt-24"
+        >
           <button
             onClick={backButton}
-            className="absolute top-5 left-5  px-4 py-2  text-white"
+            className="fixed left-3 top-3 z-10 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20 sm:left-5 sm:top-5"
+            aria-label="Back to projects"
           >
-            <ChevronLeft className="h-11 w-11 " />
+            <ChevronLeft className="h-8 w-8" />
           </button>
 
-          <img
-            src={selected.img}
-            className="md:w-[60%] w-[350px] md:h-[500px] mb-10 rounded shadow-lg"
-            alt="Selected project"
-          />
-          <div className="flex  gap-3">
-            <p className="md:text-4xl text-2xl text-white font-bold font-PlayFair mb-2">
-              {selected.title1}
-            </p>
-            <p className="md:text-4xl text-2xl text-white font-bold font-PlayFair">
-              {selected.title2}
-            </p>
+          <div className="mx-auto w-full max-w-5xl">
+            <img
+              src={selected.img}
+              className="mx-auto mb-8 max-h-[55vh] w-full rounded-lg object-contain shadow-lg"
+              alt="Selected project"
+            />
+            <div className="mb-8 flex flex-wrap justify-center gap-x-3 text-center font-PlayFair text-3xl font-bold sm:text-4xl">
+              <p>{selected.title1}</p>
+              <p>{selected.title2}</p>
+            </div>
+
+            {selected.description && (
+              <section className="mb-8">
+                <h2 className="mb-3 text-2xl font-semibold sm:text-3xl">Overview</h2>
+                <p className="leading-relaxed text-white/80">{selected.description}</p>
+              </section>
+            )}
+
+            {selected.image && (
+              <section className="mb-8">
+                <h2 className="mb-4 text-2xl font-semibold sm:text-3xl">Compiled Design</h2>
+                <img
+                  className="mx-auto h-auto max-h-[70vh] w-full rounded-lg border border-white/15 object-contain"
+                  src={selected.image}
+                  alt={`${selected.title1} ${selected.title2} compiled design`}
+                />
+              </section>
+            )}
+
+            <div className="flex flex-wrap gap-3 border-t border-white/20 pt-6">
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded bg-gray-600 px-4 transition hover:bg-green-600"
+              >
+                Source Code <MoveUpRight className="h-4 w-4" />
+              </a>
+
+              {liveLink && (
+                <a
+                  href={liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded bg-green-700 px-4 transition hover:bg-green-600"
+                >
+                  Live Site <MoveUpRight className="h-4 w-4" />
+                </a>
+              )}
+
+              {pdf && (
+                <a
+                  href={pdf}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded bg-red-700 px-4 transition hover:bg-green-600"
+                  download
+                >
+                  Download Report <FileDown className="h-4 w-4" />
+                </a>
+              )}
+            </div>
+
+            {recommendationHealthLink && (
+              <aside className="mt-5 rounded-lg border border-white/15 bg-white/5 p-4">
+                <p className="mb-3 leading-relaxed text-white/80">
+                  If property recommendations are not loading, use the health check to wake up the recommendation service. It may take a few moments to start; then return to the site and try again.
+                </p>
+                <a
+                  href={recommendationHealthLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded bg-gray-600 px-4 transition hover:bg-green-600"
+                >
+                  Wake Recommendation Service <MoveUpRight className="h-4 w-4" />
+                </a>
+              </aside>
+            )}
           </div>
-
-          <div className="w-[65vw]">
-            <h2 className="font-semibold text-white text-5xl mt-16 mb-6">
-              Overview
-            </h2>
-            <p className="text-white">{selected.description}</p>
-
-            <div>
-              {selected.problem && (
-                <div>
-                  <h2 className="font-semibold text-white text-5xl mt-16 mb-6">
-                    Problem
-                  </h2>
-                  <p className="text-white">{selected.problem}</p>
-                </div>
-              )}
-            </div>
-
-            <div>
-              {selected.image && (
-                <div>
-                  <h2 className="font-semibold text-white text-5xl mt-16 mb-10">
-                    Compiled Design
-                  </h2>
-                  <img className="border" src={image} />
-                </div>
-              )}
-            </div>
-
-            <h2 className="mt-16 text-white text-5xl font-semibold">
-              Tech Stack
-            </h2>
-            <div className="flex md:w-[65vw]  mt-10 ">
-              {selected.Mern && (
-                 <img className="w-[250px] h-[150px] " src={Mern} />
-              )}
-
-              {selected.Git && (
-                              <img className="w-[200px] h-[160px]" src={Git} />
-
-              )}
-              
-              {selected.Tail && (
-                    <img className="w-[250px] h-[150px]" src={Tail} />
-              )}
-
-              {selected.Python && (
-                <img className="w-[200px] h-[150px]" src={Python} />
-              )}
-            </div>
-          </div>
-<div className="flex gap-8">
-
-  <a href={link} className="flex md:ml-16  bg-gray-600 hover:bg-green-600 text-white md:h-12 pt-3 rounded  mt-[190px] justify-center transition w-[130px] md:w-[160px]">
-    Source Code  <MoveUpRight className="ml-2" /></a>
-
-            <a
-            href={pdf}
-            className=" flex  bg-red-700 hover:bg-green-600 text-white md:h-12 h-12 pt-3 rounded md:ml-[700px] mt-[190px] justify-center transition w-[170px] md:w-[180px]"
-            download={pdf}
-          >
-            Download Report <FileDown className="ml-3"/>
-          </a>
-
-
-</div>
         </div>
       ) : (
         <div
@@ -170,9 +143,9 @@ function Page({ project }) {
           className=" border-t-2  border-black pt-5 pb-6 cursor-pointer overflow-hidden flex justify-center "
         >
           <p id="title1" className=" mr-2 md:mr-4 md:text-[4vw] font-PlayFair ">{title1}</p>
-          <motion.div variants={anim} animate={isActive ? "open" : "closed"}>
+          <MotionDiv variants={anim} animate={isActive ? "open" : "closed"}>
             <img src={img} className="md:w-[10vw]] md:h-[120px]" />
-          </motion.div>
+          </MotionDiv>
           <p id="title1" className=" font-PlayFair  md:ml-3  md:text-[4vw]">{title2}</p>
         </div>
       )}

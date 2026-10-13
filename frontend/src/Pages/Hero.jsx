@@ -5,7 +5,6 @@ import himal from "./himal.jpg";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import {Copyright } from 'lucide-react'
-import Nav from "../Component/Nav";
 
 function Hero() {
 
@@ -64,29 +63,32 @@ function Hero() {
 
 
   return (
-    <div className="relative w-full h-dvh overflow-hidden" id="hero">
+    <div className="relative h-dvh min-h-[24rem] w-full overflow-hidden" id="hero">
      
       <img
         src={himal}
-        className="block h-auto w-full object-contain"
+        className="absolute inset-0 block h-full w-full object-cover object-center"
         alt="himalayas"
+        fetchpriority="high"
       />
 
-       <div className="absolute top-8 left-7 mt-16 z-30 flex items-center gap-2">
-    <Copyright className="w-5 h-6  md:ml-10" color="#d69e2e" />
-    <h1 className=" font-serif text-yellow-600 text-sm drop-shadow-md" id="copy">Code by Kul</h1>
-  </div>
+      <div className="absolute left-4 top-20 z-30 flex items-center gap-2 sm:left-8 sm:top-24">
+        <Copyright className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" color="#d69e2e" />
+        <h1 className="font-serif text-xs text-yellow-600 drop-shadow-md sm:text-sm" id="copy">
+          Code by Kul
+        </h1>
+      </div>
 
-      <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-4 text-center">
+      <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-3 px-4 text-center sm:gap-5">
         <img
           src={sun}
           alt="sun"
           id="sun"
-          className="w-[30vw] max-w-[200px]  min-w-[100px]"
+          className="h-auto w-[clamp(6rem,22vw,12.5rem)]"
         />
         <h1
           id="head"
-          className="relative overflow-hidden m-0 font-Trade text-white text-[5vw] leading-none drop-shadow-md"
+          className="relative m-0 max-w-full overflow-hidden font-Trade text-[clamp(2rem,7vw,5.5rem)] leading-tight text-white drop-shadow-md"
         >
           Kulbhushan Basnet
         </h1>

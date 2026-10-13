@@ -22,19 +22,15 @@ function Project() {
       title1: "Basnet",
       title2: "Realities",
       img: Real,
-      description: "Basnet Realties is introduced which main goal is to build an open and easy to use online Real Estate system. Unlike other traditional real estate website which only focuses on the buy, rent and sell of properties, Basnet realties offer the various facilities such as recommendation system according to the user preferences, interactive maps, Appointment Booking Feature, EMI calculator, connection with the best certified agents. Basnet Realties incorporates artificial intelligence into their platform using a recommendation system based on machine learning to provide users with property suggestions that match their specific requirements. ",
-      problem: "Basnet’s Realty addresses several key challenges in the real estate industry, including the lack of user-friendly platforms, difficulty finding verified agents, and the overwhelming process of browsing and purchasing property. Many existing platforms fail to categorize listings clearly, provide reliable agent information, or offer features like appointment booking and AI-powered recommendations. Additionally, users often face a lack of pricing transparency and have limited access to data on hotspot locations. Building such a platform also presents technical challenges, such as selecting the right tools for scalability, integrating AI algorithms, and ensuring data security and agent verification",
       image: Basnet,
       Python: python,
       Git : git,
       Tail : tail,
       Mern : mern,
       pdf : Realities,
-      link: "https://github.com/kulbasnet/RealEstate"
-
-
-
-
+      link: "https://github.com/kulbasnet/RealEstate",
+      liveLink: "https://real-estate-gules-sigma-43.vercel.app/hero",
+      recommendationHealthLink: "https://realestate-recommender-s90x.onrender.com/health"
     },
     {
       id: 2,

@@ -15,7 +15,7 @@ import img8 from "../Image/7.jpg";
 
 
 const paragraph =
-  "Recent Graduate IT Student, I specialize in full-stack development with expertise in MERN Stack and AI, currently transitioning from academia to the professional tech arena while actively building hands-on experience. My technical proficiency spans Python, JavaScript, and C#, complemented by a robust academic foundation that has instilled a disciplined focus on code quality, best practices, and secure system design.";
+  "A full-stack developer with a Bachelor’s degree in Computer Science, I specialize in building scalable web applications, RESTful APIs, and AI-powered solutions. My technical expertise spans JavaScript, TypeScript, Python, React, Node.js, and databases, complemented by hands-on industry experience in cloud deployment, asynchronous processing, and system integration. I focus on writing efficient, maintainable code while applying software engineering best practices to develop reliable, performance-driven applications.";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
